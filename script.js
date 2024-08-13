@@ -5,17 +5,27 @@ $(document).ready(function() {
         const name = $('#contactName').val().trim();
         const email = $('#contactEmail').val().trim();
         const message = $('#contactMessage').val().trim();
+        const mobile = $('#contactMobile').val().trim();
+        const telegramId = $('#contactTelegram').val().trim();
         const files = $('#contactFile')[0].files;
 
         // Max file size (e.g., 50MB for demonstration)
         const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
 
         if (name && email && message) {
-            const chat_id = 'Your Telegram Chat_Id';
-            const bot_token = 'Telegram_Bot_Token';
+            const chat_id = '@Chat_Id_Here';
+            const bot_token ='Bot_Token_Here';
 
             $('#spinner').show(); // Show the loading spinner
             $('#progressContainer').show(); // Show the progress bar
+
+            let additionalInfo = '';
+            if (mobile) {
+                additionalInfo += `\nMobile: ${mobile}`;
+            }
+            if (telegramId) {
+                additionalInfo += `\nTelegram ID: ${telegramId}`;
+            }
 
             if (files.length > 0) {
                 let completedRequests = 0;
@@ -31,7 +41,7 @@ $(document).ready(function() {
 
                         const formData = new FormData();
                         formData.append('chat_id', chat_id);
-                        formData.append('caption', `Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
+                        formData.append('caption', `Name: ${name}\nEmail: ${email}\nMessage: ${message}${additionalInfo}`);
                         formData.append('document', file);
 
                         const url = `https://api.telegram.org/bot${bot_token}/sendDocument`;
@@ -78,7 +88,7 @@ $(document).ready(function() {
                 sendNextFile(0); // Start sending files
             } else {
                 // If no file is attached, use sendMessage
-                const textMessage = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
+                const textMessage = `Name: ${name}\nEmail: ${email}\nMessage: ${message}${additionalInfo}`;
                 const url = `https://api.telegram.org/bot${bot_token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(textMessage)}`;
 
                 $.ajax({
