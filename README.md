@@ -22,7 +22,7 @@ This project is a simple "Contact Us" form built with HTML, CSS, JavaScript, and
 ### Installation
 
 -**To Get Bot Token** [@BotFather](https://t.me/BotFather)
--**Find Chat ID** [@userinfobot](https://te.me/@userinfobot)
+-**Find Chat ID** [@userinfobot](https://t.me/@userinfobot)
 
 1. **Clone the repository:**
     ```bash
