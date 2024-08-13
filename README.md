@@ -10,7 +10,7 @@ This project is a simple "Contact Us" form built with HTML, CSS, JavaScript, and
 - **Progress Indicator**: Displays a progress bar and spinner during file upload.
 - **Telegram Integration**: Sends form submissions to a specified Telegram chat.
 - **Screenshot**
-- ![Project Screenshot](https://raw.githubusercontent.com/kaimuzx78/ContactUs-Using-Telegram-bot/main/Screenshot.jpg)
+- ![Project Screenshot](https://raw.githubusercontent.com/kaimuzx78/ContactUs-Using-Telegram-bot/main/Screenshot_2024-08-13-19-31-34-600_com.android.chrome.jpg)
 - 
 
 ## Getting Started
